@@ -2,7 +2,7 @@ require 'roda'
 require 'securerandom'
 
 class PortierDemo < Roda
-	use Rack::Session::Cookie, secret: "some_nice_long_random_string_DSKJH4378EYR7EGKUFH", key: "_myapp_session"
+	use Rack::Session::Cookie, secret: SecureRandom.hex(64), key: "_myapp_session"
 	plugin :portier
 
 	route do |r|
