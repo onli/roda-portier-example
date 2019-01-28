@@ -19,6 +19,10 @@ class PortierDemo < Roda
 
 			authorized_email   # email authenticated by portier
 		end
+        
+        r.post "_portier_assert" do
+            assert(id_token: r.params["id_token"])
+        end
 
 		r.get 'logout' do
 			logout!
